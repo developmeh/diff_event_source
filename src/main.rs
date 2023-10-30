@@ -17,10 +17,6 @@ struct Args {
 
 fn main() {
     let args = Args::parse();
-    let instance = GitEvents {
-        repo: args.repo.clone(),
-        sha: args.sha.clone(),
-    };
-    instance.collect_events();
+    let events = GitEvents::new(args.repo.clone(), args.sha.clone()).collect_events();
 }
 
